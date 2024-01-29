@@ -6,15 +6,19 @@
         },
         {
             "name": "user_id",
-            "type": "integer"
+            "type": "string"
         },
         {
             "name": "name",
             "type": "string"
         },
         {
-            "name": "email",
-            "type": "string"
+            "name": "game_id",
+            "type": "integer"
+        },
+        {
+            "name":"key_id",
+            "type":"integer"
         }
     ]
 }

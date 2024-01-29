@@ -1,0 +1,20 @@
+{
+    "fields": [
+        {
+            "name": "no",
+            "type": "string"
+        },
+        {
+            "name": "user_id",
+            "type": "string"
+        },
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "email",
+            "type": "string"
+        }
+    ]
+}

@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::resource('customer', 'customerController');
-Route::resource('game', 'gameController');
-Route::resource('keysgames', 'KeysgamesController');
+require __DIR__.'/auth.php';

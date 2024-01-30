@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\customerController;
+use App\Http\Controllers\gameController;
+use App\Http\Controllers\KeysgamesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +20,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::resource('customer', 'customerController');
+// Route::resource('game', 'gameController');
+// Route::resource('keysgames', 'KeysgamesController');
+
+Route::middleware(['auth'])->group(function() {
+    Route::resource('customer',customerController::class);
+    
+    Route::resource('game',gameController::class);
+    Route::resource('keygames',KeysgamesController::class);
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+
+
+require __DIR__ . '/auth.php';

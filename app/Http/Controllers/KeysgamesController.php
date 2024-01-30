@@ -58,7 +58,7 @@ class KeysgamesController extends Controller
         
         Keysgame::create($requestData);
 
-        return redirect('keysgames')->with('flash_message', 'Keysgame added!');
+        return redirect('keygames')->with('flash_message', 'Keysgame added!');
     }
 
     /**
@@ -105,7 +105,7 @@ class KeysgamesController extends Controller
         $keysgame = Keysgame::findOrFail($id);
         $keysgame->update($requestData);
 
-        return redirect('keysgames')->with('flash_message', 'Keysgame updated!');
+        return redirect('keygames')->with('flash_message', 'Keysgame updated!');
     }
 
     /**
@@ -119,6 +119,6 @@ class KeysgamesController extends Controller
     {
         Keysgame::destroy($id);
 
-        return redirect('keysgames')->with('flash_message', 'Keysgame deleted!');
+        return redirect('keygames')->with('flash_message', 'Keysgame deleted!');
     }
 }

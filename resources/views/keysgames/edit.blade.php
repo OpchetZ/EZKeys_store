@@ -21,7 +21,7 @@
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('keygames.form', ['formMode' => 'edit'])
+                            @include ('keysgames.form', ['formMode' => 'edit'])
 
                         </form>
 

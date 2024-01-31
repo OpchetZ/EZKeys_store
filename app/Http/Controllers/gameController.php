@@ -19,7 +19,7 @@ class gameController extends Controller
     {
         $keyword = $request->get('search');
         $perPage = 25;
-
+        
         if (!empty($keyword)) {
             $game = game::where('no', 'LIKE', "%$keyword%")
                 ->orWhere('user_id', 'LIKE', "%$keyword%")

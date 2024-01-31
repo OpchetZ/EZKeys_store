@@ -3,11 +3,6 @@
     <input class="form-control" name="no" type="text" id="no" value="{{ isset($keysgame->no) ? $keysgame->no : ''}}" >
     {!! $errors->first('no', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('user_id') ? 'has-error' : ''}}">
-    <label for="user_id" class="control-label">{{ 'User Id' }}</label>
-    <input class="form-control" name="user_id" type="text" id="user_id" value="{{ isset($keysgame->user_id) ? $keysgame->user_id : ''}}" >
-    {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
-</div>
 <div class="form-group {{ $errors->has('key') ? 'has-error' : ''}}">
     <label for="key" class="control-label">{{ 'Key' }}</label>
     <input class="form-control" name="key" type="text" id="key" value="{{ isset($keysgame->key) ? $keysgame->key : ''}}" >

@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>No</th>
-                                        <th>User Id</th>
+                                        {{-- <th>User Id</th> --}}
                                         <th>Key</th>
                                         <th>Game Id</th>
                                         <th>Key Id</th>
@@ -48,7 +48,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->no }}</td>
-                                            <td>{{ $item->user_id }}</td>
+                                            {{-- <td>{{ $item->user_id }}</td> --}}
                                             <td>{{ $item->key }}</td>
                                             <td>{{ $item->game_id }}</td>
                                             <td>{{ $item->key_id }}</td>

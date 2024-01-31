@@ -23,7 +23,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $keysgame->id }}</td>
                                     </tr>
-                                    <tr><th> No </th><td> {{ $keysgame->no }} </td></tr><tr><th> User Id </th><td> {{ $keysgame->user_id }} </td></tr><tr><th> Key </th><td> {{ $keysgame->key }} </td></tr><tr><th> Game Id </th><td> {{ $keysgame->game_id }} </td></tr><tr><th> Key Id </th><td> {{ $keysgame->key_id }} </td></tr>
+                                    <tr><th> No </th><td> {{ $keysgame->no }} </td></tr><tr><th> Key </th><td> {{ $keysgame->key }} </td></tr><tr><th> Game Id </th><td> {{ $keysgame->game_id }} </td></tr><tr><th> Key Id </th><td> {{ $keysgame->key_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

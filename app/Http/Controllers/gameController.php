@@ -26,6 +26,7 @@ class gameController extends Controller
                 ->orWhere('name', 'LIKE', "%$keyword%")
                 ->orWhere('game_id', 'LIKE', "%$keyword%")
                 ->orWhere('key_id', 'LIKE', "%$keyword%")
+                ->orWhere('price','LIKE',"%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $game = game::latest()->paginate($perPage);

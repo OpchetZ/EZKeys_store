@@ -14,8 +14,16 @@ class CheckRole
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next,$roles)
     {
+        // GET YOUR ROLE
+        $roles = ["admin","customer"];
+        $your_role = $request->user()->role; 
+        if (! in_array($your_role, $roles ,True)) {
+            // Redirect if not allowed ...
+            return redirect('/');  
+        }
+
         return $next($request);
     }
 }

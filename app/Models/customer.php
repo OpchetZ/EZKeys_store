@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +29,14 @@ class customer extends Model
      * @var array
      */
     protected $fillable = ['no', 'user_id', 'name', 'email'];
+
+    
+    public function game(){
+        return $this->hasMany(game::class,'user_id');
+    }
+    public function keygames(){
+        return $this->hasMany(keysgame::class,'user_id');
+    }
 
     
 }

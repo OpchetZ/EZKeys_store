@@ -31,14 +31,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>No</th><th>User Id</th><th>Name</th><th>Game Id</th><th>Key Id</th><th>Actions</th>
+                                        <th>#</th><th>No</th><th>Name</th><th>Game Id</th><th>Price</th><th>Key Id</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($game as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->no }}</td><td>{{ $item->user_id }}</td><td>{{ $item->name }}</td><td>{{ $item->game_id }}</td><td>{{ $item->key_id }}</td>
+                                        <td>{{ $item->no }}</td><td>{{ $item->name }}</td><td>{{ $item->game_id }}</td><td>{{ $item->price }}</td><td>{{ $item->key_id }}</td>
                                         <td>
                                             <a href="{{ url('/game/' . $item->id) }}" title="View game"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/game/' . $item->id . '/edit') }}" title="Edit game"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

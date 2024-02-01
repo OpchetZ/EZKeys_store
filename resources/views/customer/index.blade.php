@@ -1,9 +1,15 @@
-<x-bootstrap title="">
+<x-app-layout>
+    
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Customer') }}
+        </h2>
+    </x-slot>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Customer</div>
+                    {{-- <div class="card-header">Customer</div> --}}
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-9">
@@ -61,4 +67,5 @@
             </div>
         </div>
     </div>
-</x-bootstrap>
+
+</x-app-layout>

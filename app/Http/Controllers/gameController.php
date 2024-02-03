@@ -21,11 +21,11 @@ class gameController extends Controller
         $perPage = 25;
         
         if (!empty($keyword)) {
-            $game = game::where('no', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
-                ->orWhere('name', 'LIKE', "%$keyword%")
+            $game = game::
+                
+                Where('name', 'LIKE', "%$keyword%")
                 ->orWhere('game_id', 'LIKE', "%$keyword%")
-                ->orWhere('key_id', 'LIKE', "%$keyword%")
+                
                 ->orWhere('price','LIKE',"%$keyword%")
                 ->latest()->paginate($perPage);
         } else {

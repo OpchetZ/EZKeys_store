@@ -28,7 +28,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $customer->id }}</td>
                                     </tr>
-                                    <tr><th> No </th><td> {{ $customer->no }} </td></tr><tr><th> User Id </th><td> {{ $customer->user_id }} </td></tr><tr><th> Name </th><td> {{ $customer->name }} </td></tr><tr><th> Email </th><td> {{ $customer->email }} </td></tr>
+                                    <tr><th> User Id </th><td> {{ $customer->user_id }} </td></tr><tr><th> Name </th><td> {{ $customer->name }} </td></tr><tr><th> Email </th><td> {{ $customer->email }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

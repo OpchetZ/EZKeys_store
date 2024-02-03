@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\game;
 use App\Models\Keysgame;
 use Illuminate\Http\Request;
 
@@ -21,8 +21,8 @@ class KeysgamesController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $keysgames = Keysgame::where('no', 'LIKE', "%$keyword%")
-                ->orWhere('user_id', 'LIKE', "%$keyword%")
+            $keysgames = Keysgame::
+                Where('user_id', 'LIKE', "%$keyword%")
                 ->orWhere('key', 'LIKE', "%$keyword%")
                 ->orWhere('game_id', 'LIKE', "%$keyword%")
                 ->orWhere('key_id', 'LIKE', "%$keyword%")
@@ -40,8 +40,8 @@ class KeysgamesController extends Controller
      * @return \Illuminate\View\View
      */
     public function create()
-    {
-        return view('keysgames.create');
+    {   $games = game::get();
+        return view('keysgames.create',compact('games'));
     }
 
     /**
@@ -58,7 +58,9 @@ class KeysgamesController extends Controller
         
         Keysgame::create($requestData);
 
-        return redirect('keygames')->with('flash_message', 'Keysgame added!');
+        // return redirect('keygames')->with('flash_message', 'Keysgame added!');
+        return redirect()->route('game.show', $requestData['game_id']);
+
     }
 
     /**
@@ -105,7 +107,8 @@ class KeysgamesController extends Controller
         $keysgame = Keysgame::findOrFail($id);
         $keysgame->update($requestData);
 
-        return redirect('keygames')->with('flash_message', 'Keysgame updated!');
+        // return redirect('keygames')->with('flash_message', 'Keysgame updated!');
+        return redirect()->route('game.show', $requestData['id']);
     }
 
     /**
@@ -117,8 +120,13 @@ class KeysgamesController extends Controller
      */
     public function destroy($id)
     {
-        Keysgame::destroy($id);
-
-        return redirect('keygames')->with('flash_message', 'Keysgame deleted!');
+        
+        
+        $keysgame = Keysgame::findOrFail($id);
+    $game_id = $keysgame->game_id;
+    Keysgame::destroy($id);
+        // return redirect('keygames')->with('flash_message', 'Keysgame deleted!');
+        
+        return redirect()->route('game.show', $game_id);
     }
 }

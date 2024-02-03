@@ -27,11 +27,11 @@ class Keysgame extends Model
      *
      * @var array
      */
-    protected $fillable = ['no', 'user_id', 'key', 'game_id', 'key_id'];
+    protected $fillable = ['user_id', 'key', 'game_id', 'key_id'];
 
 
     public function game(){
-        return $this->belongsTo(game::class,'game_id');
+        return $this->belongsTo(game::class,'game_id','id');
     }
 
     public function customer(){

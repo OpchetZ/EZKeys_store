@@ -37,14 +37,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>No</th><th>User Id</th><th>Name</th><th>Email</th><th>Actions</th>
+                                        <th>#</th><th>User Id</th><th>Name</th><th>Email</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($customer as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->no }}</td><td>{{ $item->user_id }}</td><td>{{ $item->name }}</td><td>{{ $item->email }}</td>
+                                        <td>{{ $item->user_id }}</td><td>{{ $item->name }}</td><td>{{ $item->email }}</td>
                                         <td>
                                             <a href="{{ url('/customer/' . $item->id) }}" title="View customer"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/customer/' . $item->id . '/edit') }}" title="Edit customer"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

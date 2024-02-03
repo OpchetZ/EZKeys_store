@@ -28,14 +28,14 @@ class customer extends Model
      *
      * @var array
      */
-    protected $fillable = ['no', 'user_id', 'name', 'email'];
+    protected $fillable = ['user_id', 'name', 'email'];
 
     
     public function game(){
-        return $this->hasMany(game::class,'user_id');
+        return $this->hasMany(game::class,'game_id');
     }
     public function keygames(){
-        return $this->hasMany(keysgame::class,'user_id');
+        return $this->hasMany(keysgame::class,'key_id');
     }
 
     

@@ -27,7 +27,7 @@ class game extends Model
      *
      * @var array
      */
-    protected $fillable = ['no', 'name', 'game_id', 'price'];
+    protected $fillable = ['name', 'game_id', 'price'];
 
     public function keygames(){
         return $this->hasMany(keysgame::class,'game_id');

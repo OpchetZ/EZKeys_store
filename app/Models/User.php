@@ -44,6 +44,9 @@ class User extends Authenticatable
     ];
 
     public function customer(){
-        return $this->hasOne(customer::class,'user_id');
+        return $this->hasOne(customer::class,'user_id','id');
+    }
+    public function game(){
+        return $this->hasMany(game::class,'user_id','id');
     }
 }

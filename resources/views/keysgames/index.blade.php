@@ -35,11 +35,11 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>No</th>
+                                        <th>Key Id</th>
                                         {{-- <th>User Id</th> --}}
                                         <th>Key</th>
-                                        <th>Game Id</th>
-                                        <th>Key Id</th>
+                                        <th>Game Name</th>
+                                        
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -47,11 +47,11 @@
                                     @foreach ($keysgames as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->no }}</td>
+                                            <td>{{ $item->key_id }}</td>
                                             {{-- <td>{{ $item->user_id }}</td> --}}
                                             <td>{{ $item->key }}</td>
-                                            <td>{{ $item->game_id }}</td>
-                                            <td>{{ $item->key_id }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            
                                             <td>
                                                 <a href="{{ url('/keygames/' . $item->id) }}"
                                                     title="View Keysgame"><button class="btn btn-info btn-sm"><i

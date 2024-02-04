@@ -35,7 +35,7 @@ class Keysgame extends Model
     }
 
     public function customer(){
-        return $this->belongsTo(customer::class,'user_id');
+        return $this->belongsTo(customer::class,'user_id','id');
     }
     
 }

@@ -62,10 +62,10 @@
                                             
                                             
                                             <td>
-                                                <a href="{{ url('/keygames/' . $item->id) }}"
+                                                {{-- <a href="{{ url('/keygames/' . $item->id) }}"
                                                     title="View Keysgame"><button class="btn btn-info btn-sm"><i
-                                                            class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                                <a href="{{ url('/keygames/' . $item->id . '/edit') }}"
+                                                            class="fa fa-eye" aria-hidden="true"></i> View</button></a> --}}
+                                                <a href="{{ url('/keygames/' . $item->id . '/edit') }}?game_id={{ $game->id }}"
                                                     title="Edit Keysgame"><button class="btn btn-primary btn-sm"><i
                                                             class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                         Edit</button></a>

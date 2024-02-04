@@ -57,6 +57,7 @@ class KeysgamesController extends Controller
         $requestData = $request->all();
         
         Keysgame::create($requestData);
+       
 
         // return redirect('keygames')->with('flash_message', 'Keysgame added!');
         return redirect()->route('game.show', $requestData['game_id']);
@@ -85,10 +86,12 @@ class KeysgamesController extends Controller
      * @return \Illuminate\View\View
      */
     public function edit($id)
-    {
+    {   
         $keysgame = Keysgame::findOrFail($id);
-
-        return view('keysgames.edit', compact('keysgame'));
+        $games = game::get();
+        
+        return view('keysgames.edit', compact('keysgame','games'));
+        
     }
 
     /**
@@ -106,9 +109,10 @@ class KeysgamesController extends Controller
         
         $keysgame = Keysgame::findOrFail($id);
         $keysgame->update($requestData);
+        
 
         // return redirect('keygames')->with('flash_message', 'Keysgame updated!');
-        return redirect()->route('game.show', $requestData['id']);
+        return redirect()->route('game.show', $requestData['game_id']);
     }
 
     /**

@@ -33,6 +33,6 @@ class game extends Model
         return $this->hasMany(keysgame::class,'game_id');
     }
     public function customer(){
-        return $this->belongsTo(customer::class,'user_id');
+        return $this->belongsTo(customer::class,'user_id','id');
     }
 }

@@ -1,8 +1,8 @@
-<div class="form-group {{ $errors->has('user_id') ? 'has-error' : ''}}">
-    <label for="user_id" class="control-label">{{ 'User Id' }}</label>
-    <input class="form-control" name="user_id" type="text" id="user_id" value="{{ isset($customer->user_id) ? $customer->user_id : ''}}" >
+{{-- <div class="form-group {{ $errors->has('user_id') ? 'has-error' : ''}}">
+    <label for="user_id" class="control-label">{{ 'Customer Id' }}</label>
+    <input class="form-control" name="user_id" type="text" id="user_id" value="{{ isset($customer->id) ? $customer->id : ''}}">
     {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
-</div>
+</div> --}}
 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
     <label for="name" class="control-label">{{ 'Name' }}</label>
     <input class="form-control" name="name" type="text" id="name" value="{{ isset($customer->name) ? $customer->name : ''}}" >

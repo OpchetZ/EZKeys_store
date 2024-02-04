@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\customer;
-use App\Models\game;
-use App\Models\Keysgame;
+
+use App\Models\ownerkey;
 use Illuminate\Http\Request;
 
-class KeysgamesController extends Controller
+class ownerkeyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,17 +21,17 @@ class KeysgamesController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $keysgames = Keysgame::
-                Where('user_id', 'LIKE', "%$keyword%")
+            $ownerkey = ownerkey::where('name', 'LIKE', "%$keyword%")
                 ->orWhere('key', 'LIKE', "%$keyword%")
-                ->orWhere('game_id', 'LIKE', "%$keyword%")
+                ->orWhere('user_id', 'LIKE', "%$keyword%")
                 ->orWhere('key_id', 'LIKE', "%$keyword%")
+                ->orWhere('game_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $keysgames = Keysgame::latest()->paginate($perPage);
+            $ownerkey = ownerkey::latest()->paginate($perPage);
         }
 
-        return view('keysgames.index', compact('keysgames'));
+        return view('ownerkey.index', compact('ownerkey'));
     }
 
     /**
@@ -41,9 +40,8 @@ class KeysgamesController extends Controller
      * @return \Illuminate\View\View
      */
     public function create()
-    {   $games = game::get();
-        $customer = customer::get();
-        return view('keysgames.create',compact('games'));
+    {
+        return view('ownerkey.create');
     }
 
     /**
@@ -58,12 +56,9 @@ class KeysgamesController extends Controller
         
         $requestData = $request->all();
         
-        Keysgame::create($requestData);
-       
+        ownerkey::create($requestData);
 
-        // return redirect('keygames')->with('flash_message', 'Keysgame added!');
-        return redirect()->route('game.show', $requestData['game_id']);
-
+        return redirect('ownerkey')->with('flash_message', 'ownerkey added!');
     }
 
     /**
@@ -75,9 +70,9 @@ class KeysgamesController extends Controller
      */
     public function show($id)
     {
-        $keysgame = Keysgame::findOrFail($id);
+        $ownerkey = ownerkey::findOrFail($id);
 
-        return view('keysgames.show', compact('keysgame'));
+        return view('ownerkey.show', compact('ownerkey'));
     }
 
     /**
@@ -88,12 +83,10 @@ class KeysgamesController extends Controller
      * @return \Illuminate\View\View
      */
     public function edit($id)
-    {   
-        $keysgame = Keysgame::findOrFail($id);
-        $games = game::get();
-        
-        return view('keysgames.edit', compact('keysgame','games'));
-        
+    {
+        $ownerkey = ownerkey::findOrFail($id);
+
+        return view('ownerkey.edit', compact('ownerkey'));
     }
 
     /**
@@ -109,12 +102,10 @@ class KeysgamesController extends Controller
         
         $requestData = $request->all();
         
-        $keysgame = Keysgame::findOrFail($id);
-        $keysgame->update($requestData);
-        
+        $ownerkey = ownerkey::findOrFail($id);
+        $ownerkey->update($requestData);
 
-        // return redirect('keygames')->with('flash_message', 'Keysgame updated!');
-        return redirect()->route('game.show', $requestData['game_id']);
+        return redirect('ownerkey')->with('flash_message', 'ownerkey updated!');
     }
 
     /**
@@ -126,13 +117,8 @@ class KeysgamesController extends Controller
      */
     public function destroy($id)
     {
-        
-        
-        $keysgame = Keysgame::findOrFail($id);
-    $game_id = $keysgame->game_id;
-    Keysgame::destroy($id);
-        // return redirect('keygames')->with('flash_message', 'Keysgame deleted!');
-        
-        return redirect()->route('game.show', $game_id);
+        ownerkey::destroy($id);
+
+        return redirect('ownerkey')->with('flash_message', 'ownerkey deleted!');
     }
 }

@@ -40,3 +40,4 @@ Route::get('/dashboard', function () {
 
 
 require __DIR__ . '/auth.php';
+Route::resource('ownerkey', 'ownerkeyController');

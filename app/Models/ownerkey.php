@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class customer extends Model
+class ownerkey extends Model
 {
     use HasFactory;
     /**
@@ -14,7 +13,7 @@ class customer extends Model
      *
      * @var string
      */
-    protected $table = 'customers';
+    protected $table = 'ownerkeys';
 
     /**
     * The database primary key value.
@@ -28,18 +27,15 @@ class customer extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'name', 'email'];
+    protected $fillable = ['name', 'key', 'user_id', 'key_id', 'game_id'];
 
-    
     public function game(){
-        return $this->hasMany(game::class,'id');
+        $this->belongsTo(game::class,'game_id','id');
     }
-    public function keygames(){
-        return $this->hasMany(keysgame::class,'user_id');
+    public function key(){
+        $this->belongsTo(Keysgame::class,'key_id','id');
     }
-    public function user(){
-        return $this->belongsTo(user::class,'user_id','id');
+    public function customer(){
+        $this->belongsTo(customer::class,'user_id','id');
     }
-
-    
 }

@@ -35,7 +35,7 @@ class customer extends Model
         return $this->hasMany(game::class,'id');
     }
     public function keygames(){
-        return $this->hasMany(keysgame::class,'user_id');
+        return $this->hasOne(keysgame::class,'user_id');
     }
     public function user(){
         return $this->belongsTo(user::class,'user_id','id');

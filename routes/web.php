@@ -3,6 +3,7 @@
 use App\Http\Controllers\customerController;
 use App\Http\Controllers\gameController;
 use App\Http\Controllers\KeysgamesController;
+use App\Http\Controllers\ownerkeyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function() {
     
     Route::resource('game',gameController::class);
     Route::resource('keygames',KeysgamesController::class);
+    Route::resource('ownerkey', ownerkeyController::class);
     });
 });
 
@@ -40,4 +42,3 @@ Route::get('/dashboard', function () {
 
 
 require __DIR__ . '/auth.php';
-Route::resource('ownerkey', 'ownerkeyController');

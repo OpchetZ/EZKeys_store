@@ -84,12 +84,7 @@
                             </table>
                             
                         </div>
-                        <div class="text-center">
-                            <a href="{{ url('/keygames/create') }}?user_id={{ $customer->id }}" class="btn btn-success btn-sm"
-                                title="Add New Keysgame">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                            </a>
-                        </div>
+                        
 
                     </div>
                 </div>

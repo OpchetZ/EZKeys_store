@@ -32,6 +32,7 @@
                         <hr>
                         @php
                             $keygames = $customer->keygames()->get();
+                            $game = $customer->game()->get();
                         @endphp
                         <div class="table-responsive">
                             <table class="table">
@@ -44,28 +45,26 @@
                                         <th>Key</th>
                                         
                                         
-                                        <th>Actions</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($keygames as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->key_id }}</td>
-                                            {{-- <td>{{ $item->game->name }}</td> --}}
-                                            
-                                            {{-- <td>{{ $item->user_id }}</td> --}}
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->game->name }}</td>
                                             <td>{{ $item->key }}</td>
                                             
                                             
-                                            <td>
-                                                {{-- <a href="{{ url('/keygames/' . $item->id) }}"
+                                            {{-- <td>
+                                                <a href="{{ url('/keygames/' . $item->id) }}"
                                                     title="View Keysgame"><button class="btn btn-info btn-sm"><i
-                                                            class="fa fa-eye" aria-hidden="true"></i> View</button></a> --}}
-                                                {{-- <a href="{{ url('/keygames/' . $item->id . '/edit') }}?game_id={{ $game->id }}"
+                                                            class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                                <a href="{{ url('/keygames/' . $item->id . '/edit') }}?game_id={{ $game->id }}"
                                                     title="Edit Keysgame"><button class="btn btn-primary btn-sm"><i
                                                             class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                        Edit</button></a> --}}
+                                                        Edit</button></a>
 
                                                 <form method="POST" action="{{ url('/keygames' . '/' . $item->id) }}"
                                                     accept-charset="UTF-8" style="display:inline">
@@ -77,7 +76,7 @@
                                                             class="fa fa-trash-o" aria-hidden="true"></i>
                                                         Delete</button>
                                                 </form>
-                                            </td>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

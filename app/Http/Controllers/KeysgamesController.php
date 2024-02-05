@@ -42,7 +42,7 @@ class KeysgamesController extends Controller
      */
     public function create()
     {   $games = game::get();
-        $customer = customer::get();
+        $customers = customer::get();
         return view('keysgames.create',compact('games'));
     }
 
@@ -91,8 +91,8 @@ class KeysgamesController extends Controller
     {   
         $keysgame = Keysgame::findOrFail($id);
         $games = game::get();
-        
-        return view('keysgames.edit', compact('keysgame','games'));
+        $customers=customer::get();
+        return view('keysgames.edit', compact('keysgame','games','customers'));
         
     }
 

@@ -32,10 +32,10 @@ class customer extends Model
 
     
     public function game(){
-        return $this->hasMany(game::class,'id');
+        return $this->hasMany(game::class,'user_id');
     }
     public function keygames(){
-        return $this->hasOne(keysgame::class,'user_id');
+        return $this->hasMany(keysgame::class,'customer_id');
     }
     public function user(){
         return $this->belongsTo(user::class,'user_id','id');

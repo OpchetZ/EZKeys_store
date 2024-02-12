@@ -8,6 +8,11 @@
     <input class="form-control" name="name" type="text" id="name" value="{{ isset($game->name) ? $game->name : ''}}" >
     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('photo') ? 'has-error' : ''}}">
+    <label for="name" class="control-label">{{ 'Photo' }}</label>
+    <input type="file" name="photo" class="form-control" value="{{ isset($game->photo) ? $game->photo : ''}}">
+    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+</div>
 <div class="form-group {{ $errors->has('price') ? 'has-error' : ''}}">
     <label for="price" class="control-label">{{ 'price' }}</label>
     <input class="form-control" name="price" type="text" id="price" value="{{ isset($game->price) ? $game->price : ''}}" >

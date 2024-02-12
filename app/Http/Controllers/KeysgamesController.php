@@ -57,9 +57,16 @@ class KeysgamesController extends Controller
     {
         
         $requestData = $request->all();
+        $key = request('key');
+        $found = Keysgame::where('key',$key)->count();
         
-        Keysgame::create($requestData);
-       
+
+        if ($found == 1) {
+            $request->$key = $key;
+            return redirect()->back();
+        }else{
+            Keysgame::create($requestData);
+        }
 
         // return redirect('keygames')->with('flash_message', 'Keysgame added!');
         return redirect()->route('game.show', $requestData['game_id']);

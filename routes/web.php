@@ -25,13 +25,13 @@ Route::get('/', function () {
 // Route::resource('game', 'gameController');
 // Route::resource('keysgames', 'KeysgamesController');
 
-Route::middleware(['auth'])->group(function() {
-    Route::middleware(['role:admin'])-> group(function(){
-    Route::resource('customer',customerController::class);
-    
-    Route::resource('game',gameController::class);
-    Route::resource('keygames',KeysgamesController::class);
-    Route::resource('ownerkey', ownerkeyController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::middleware(['role:admin'])->group(function () {
+        Route::resource('customer', customerController::class);
+
+        Route::resource('game', gameController::class);
+        Route::resource('keygames', KeysgamesController::class);
+        Route::resource('ownerkey', ownerkeyController::class);
     });
 });
 

@@ -1,4 +1,9 @@
 
+{{-- @if($errors->has('key'))
+    <div class="alert alert-danger alert-block">
+        <strong>{{$errors->first('key')}}</strong>
+    </div>
+@endif --}}
 <div class="form-group {{ $errors->has('game_id') ? 'has-error' : ''}}">
     <label for="name" class="control-label">{{ 'Game ID' }}</label>
     <input class="form-control" name="game_id" type="text" id="game_id" value="{{ isset($game->game_id) ? $game->game_id : request('game_id') }}" readonly>

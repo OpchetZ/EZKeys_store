@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class gameController extends Controller
 {
@@ -57,6 +58,10 @@ class gameController extends Controller
         
         $requestData = $request->all();
         
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('', 'public');
+            $requestData['photo'] = url(Storage::url($path));
+        }
         game::create($requestData);
 
         return redirect('game')->with('flash_message', 'game added!');
@@ -104,6 +109,11 @@ class gameController extends Controller
         $requestData = $request->all();
         
         $game = game::findOrFail($id);
+
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('', 'public');
+            $requestData['photo'] = url(Storage::url($path));
+        }
         $game->update($requestData);
 
         return redirect('game')->with('flash_message', 'game updated!');

@@ -61,10 +61,7 @@ class KeysgamesController extends Controller
         $key = request('key');
         $found = Keysgame::where('key',$key)->count();
         
-        if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('', 'public');
-            $requestData['photo'] = url(Storage::url($path));
-        }
+        
 
         if ($found == 1) {
             $request->$key = $key;
@@ -124,10 +121,7 @@ class KeysgamesController extends Controller
         $keysgame = Keysgame::findOrFail($id);
         $keysgame->update($requestData);
 
-        if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('', 'public');
-            $requestData['photo'] = url(Storage::url($path));
-        }
+        
 
         // return redirect('keygames')->with('flash_message', 'Keysgame updated!');
         return redirect()->route('game.show', $requestData['game_id']);

@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('game', gameController::class);
         Route::resource('keygames', KeysgamesController::class);
-        Route::resource('ownerkey', ownerkeyController::class);
+        
     });
 });
 

@@ -31,14 +31,22 @@
 
                         <br/>
                         <br/>
+                        
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col"><th>Name</th></div>
+                            <div class="col ml-2"><b>Price</b></div>
+                            <div class="col"><b>Action</b></div>
+                            <div class="col-2"></div>
+
+                        </div>
+                       
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
                         <div class="table-responsive">
                             <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th><th>IMG</th><th>Name</th><th>Price</th><th>Actions</th>
-                                    </tr>
-                                </thead>
+                                
                                 <tbody>
+                                    
                                 @foreach($game as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
@@ -56,8 +64,10 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                            
                                 </tbody>
                             </table>
+                        </div>
                             <div class="pagination-wrapper"> {!! $game->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 

@@ -1,7 +1,7 @@
-<x-app-layout>
+<x-app-layout title="{{ $game->name }}">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Game') }}
+            {{ $game->name }}
         </h2>
     </x-slot>
     <div class="container">

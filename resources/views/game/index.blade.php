@@ -34,7 +34,7 @@
                         
                         <div class="row">
                             <div class="col-4"></div>
-                            <div class="col"><th>Name</th></div>
+                            <div class="col"><b>Name</b></div>
                             <div class="col ml-2"><b>Price</b></div>
                             <div class="col"><b>Action</b></div>
                             <div class="col-2"></div>
@@ -44,13 +44,18 @@
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                         <div class="table-responsive">
                             <table class="table">
+                                {{-- <thead>
+                                    <tr>
+                                        <th>#</th><th>IMG</th><th>Name</th><th>Price</th><th>Actions</th>
+                                    </tr>
+                                </thead> --}}
                                 
                                 <tbody>
                                     
                                 @foreach($game as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ $item->photo }}" width="150px"/></td>
+                                        <td><img src="{{ $item->photo }}" width="145px"/></td>
                                         <td>{{ $item->name }}</td><td>{{ $item->price }}</td>
                                         <td>
                                             <a href="{{ url('/game/' . $item->id) }}" title="View game"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

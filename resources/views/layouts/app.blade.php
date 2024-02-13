@@ -24,7 +24,7 @@
     <style>
         .my-custom-scrollbar {
             position: relative;
-            height: 200px;
+            height: 400px;
             overflow: auto;
         }
 

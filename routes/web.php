@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\customerController;
+use App\Http\Controllers\dashboard;
 use App\Http\Controllers\gameController;
 use App\Http\Controllers\KeysgamesController;
 use App\Http\Controllers\ownerkeyController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard as HtmlDashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +37,16 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::middleware(['role:admin,guest'])->group(function (){
+        Route::resource('dashboard', dashboard::class);
+
+    });
+});
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 
 

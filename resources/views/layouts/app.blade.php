@@ -58,7 +58,7 @@
             <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
                 <div class="col mb-3">
                     <div class="shrink-0 flex items-center">
-                        <a href="{{ route('dashboard') }}">
+                        <a href="{{ url('/dashboard') }}">
                             <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                         </a>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="col mb-3">
                     <h5>Section</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="{{ route('dashboard') }}"
+                        <li class="nav-item mb-2"><a href="{{ url('/dashboard') }}"
                                 class="nav-link p-0 text-muted">Home</a></li>
                         <li class="nav-item mb-2"><a href="{{ route('game.index') }}"
                                 class="nav-link p-0 text-muted">Game</a></li>

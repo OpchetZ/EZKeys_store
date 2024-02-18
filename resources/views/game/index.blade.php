@@ -55,8 +55,8 @@
                                 @foreach($game as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ $item->photo }}" width="145px"/></td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->price }}</td>
+                                        <td style="width: 318px"><img src="{{ $item->photo }}" width="145px"/></td>
+                                        <td style="width: 275px">{{ $item->name }}</td><td style="width: 125px">{{ $item->price }}</td>
                                         <td>
                                             <a href="{{ url('/game/' . $item->id) }}" title="View game"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/game/' . $item->id . '/edit') }}" title="Edit game"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

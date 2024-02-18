@@ -63,7 +63,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Key Id</th>
+                                       
                                         <th>Game name</th>
 
                                         <th>Key</th>
@@ -76,7 +76,7 @@
                                     @foreach ($keygames as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->id }}</td>
+                                            
                                             <td>{{ $item->game->name }}</td>
 
                                             {{-- <td>{{ $item->user_id }}</td> --}}

@@ -65,7 +65,7 @@ class KeysgamesController extends Controller
 
         if ($found == 1) {
             $request->$key = $key;
-            return redirect()->back('flash_message','already have');
+            return redirect()->back()->with('flash_message', 'already have');;
         }else{
             Keysgame::create($requestData);
         }

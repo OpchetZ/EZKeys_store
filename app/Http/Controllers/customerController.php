@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class customerController extends Controller
@@ -40,8 +41,8 @@ class customerController extends Controller
      */
     public function create()
     {
-        
-        return view('customer.create');
+        $user = User::get();
+        return view('customer.create', compact('user'));
     }
 
     /**
@@ -55,8 +56,8 @@ class customerController extends Controller
     {
         
         $requestData = $request->all();
-        
-        customer::create($requestData);
+        $user = User::get();
+        $customer = customer::create($requestData);
 
         return redirect('customer')->with('flash_message', 'customer added!');
     }
@@ -85,8 +86,8 @@ class customerController extends Controller
     public function edit($id)
     {
         $customer = customer::findOrFail($id);
-
-        return view('customer.edit', compact('customer'));
+        $user = User::get();
+        return view('customer.edit', compact('customer','user'));
     }
 
     /**

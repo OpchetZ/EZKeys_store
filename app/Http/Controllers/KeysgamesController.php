@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Models\customer;
 use App\Models\game;
 use App\Models\Keysgame;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -101,7 +102,8 @@ class KeysgamesController extends Controller
         $keysgame = Keysgame::findOrFail($id);
         $games = game::get();
         $customers=customer::get();
-        return view('keysgames.edit', compact('keysgame','games','customers'));
+        $user = User::get();
+        return view('keysgames.edit', compact('keysgame','games','customers','user'));
         
     }
 

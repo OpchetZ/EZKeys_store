@@ -17,7 +17,7 @@ class CheckRole
     public function handle(Request $request, Closure $next,$roles)
     {
         // GET YOUR ROLE
-        $roles = ["admin","customer"];
+        $roles = ["admin","guest"];
         $your_role = $request->user()->role; 
         if (! in_array($your_role, $roles ,True)) {
             // Redirect if not allowed ...

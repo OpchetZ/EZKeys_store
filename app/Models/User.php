@@ -47,4 +47,8 @@ class User extends Authenticatable
         return $this->hasOne(customer::class,'user_id');
     }
     
+    public function keygames(){
+        return $this->hasMany(keysgame::class,'user_id');
+    }
+    
 }

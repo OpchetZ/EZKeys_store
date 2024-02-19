@@ -10,7 +10,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('RENAME.ico') }}">
 
-    
+
 
 
     <!-- Fonts -->
@@ -74,10 +74,12 @@
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="{{ url('/dashboard') }}"
                                 class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('game.index') }}"
-                                class="nav-link p-0 text-muted">Game</a></li>
-                        <li class="nav-item mb-2"><a href="{{ route('customer.index') }}"
-                                class="nav-link p-0 text-muted">Customer</a></li>
+                        @if (Auth()->user()->role == 'admin')
+                            <li class="nav-item mb-2"><a href="{{ route('game.index') }}"
+                                    class="nav-link p-0 text-muted">Game</a></li>
+                            <li class="nav-item mb-2"><a href="{{ route('customer.index') }}"
+                                    class="nav-link p-0 text-muted">Customer</a></li>
+                        @endif
 
 
 

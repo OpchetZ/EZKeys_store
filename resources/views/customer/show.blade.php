@@ -21,11 +21,11 @@
                         </form>
                         <br/>
                         <br/>
-
+                        
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr><th> User Id </th><td> {{ $customer->id }} </td></tr><tr><th> Name </th><td> {{ $customer->name }} </td></tr><tr><th> Email </th><td> {{ $customer->email }} </td></tr>
+                                    <tr><th> User Id </th><td> {{ $customer->id }} </td></tr><tr><th> Name </th><td> {{ $customer->user->name }} </td></tr><tr><th> Email </th><td> {{ $customer->user->email }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

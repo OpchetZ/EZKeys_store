@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                
+                @if(Auth()->user()->role == "admin")
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('customer.index')" :active="request()->routeIs('dashboard')">
                         {{ __('customer') }}
@@ -23,6 +23,7 @@
                     </x-nav-link>
                 </div>
             </div>
+            @endif
             
 
             <!-- Settings Dropdown -->

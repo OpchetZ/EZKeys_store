@@ -25,7 +25,7 @@
                                     <b>{{ $item->price }} บาท </b>
                                 </div>
                                 <div class="button">
-                                    <a href="#" title="Back"><button class="btn btn-success btn-sm">Add to Cart <i
+                                    <a href="#" title="Back"><button class="btn btn-success btn-sm">Buy Now <i
                                         class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                                 </div>
 

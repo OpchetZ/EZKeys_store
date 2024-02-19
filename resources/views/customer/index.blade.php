@@ -36,6 +36,9 @@
 
                         <br />
                         <br />
+                       {{-- @php
+                            $user = $customer->user()->get();
+                       @endphp --}}
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -50,8 +53,8 @@
                                     @foreach ($customer as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->user->name }}</td>
+                                            <td>{{ $item->user->email }}</td>
                                             <td>
                                                 <a href="{{ url('/customer/' . $item->id) }}"
                                                     title="View customer"><button class="btn btn-info btn-sm"><i

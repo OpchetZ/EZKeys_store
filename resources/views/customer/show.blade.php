@@ -1,7 +1,7 @@
-<x-app-layout title="{{ $customer->name }}">
+<x-app-layout title="{{ $customer->user->name }}">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $customer->name }}
+            {{ $customer->user->name }}
         </h2>
     </x-slot>
     <div class="container">

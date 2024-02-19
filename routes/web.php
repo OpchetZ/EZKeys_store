@@ -4,6 +4,7 @@ use App\Http\Controllers\customerController;
 use App\Http\Controllers\dashboard;
 use App\Http\Controllers\gameController;
 use App\Http\Controllers\KeysgamesController;
+use App\Http\Controllers\MykeyController;
 use App\Http\Controllers\ownerkeyController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard as HtmlDashboard;
@@ -40,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin,guest'])->group(function (){
         Route::resource('dashboard', dashboard::class);
+        Route::get('/Mykey/{id}', [dashboard::class, 'show'])->middleware('auth');
+        // Route::resource('Mykey',MykeyController::class);
 
     });
 });

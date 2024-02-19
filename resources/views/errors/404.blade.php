@@ -23,7 +23,7 @@
                         Just GOOOOOO BACK
                     </p>
 
-                    <a href="{{ route('dashboard') }}" class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100">Go home</a>
+                    <a href="{{ url('/dashboard') }}" class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100">Go home</a>
                 </div>
             </div>
         </div>

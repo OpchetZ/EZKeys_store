@@ -10,11 +10,19 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in as {{ Auth::user()->name }}
+
+                    <div class="button">
+                        <a href="{{ url('/Mykey/' . Auth::user()->id) }}">
+
+                            <button class="btn btn-info btn-sm">My Key</button>
+
+                        </a>
+                    </div>
                     <hr>
                     <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4" style="padding: 3%">
                         @foreach ($game as $item)
                             <div class="card pb-3">
-                                
+
                                 <div class="tumb" style="margin-left: auto;margin-right:auto;">
                                     <img class="rounded" src="{{ $item->photo }}" width="400px" />
                                 </div>
@@ -25,14 +33,11 @@
                                     <b>{{ $item->price }} บาท </b>
                                 </div>
                                 <div class="button">
-                                    <a href="#" title="Back"><button class="btn btn-success btn-sm">Buy Now <i
-                                        class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
+                                    <a href="#" title="Buy"><button class="btn btn-success btn-sm">Buy Now <i
+                                                class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                                 </div>
 
                             </div>
-                            
-                               
-                            
                         @endforeach
                     </div>
 

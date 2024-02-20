@@ -23,7 +23,26 @@
                                 @endforeach
                             </ul>
                         @endif
+                        @php
+                        function generateRandomString($len)
+                        {
+                            $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                            $result = '';
 
+                            for ($count = 0; $count < $len; $count++) {
+                                $randomIndex = mt_rand(0, strlen($characters) - 1);
+                                $result .= $characters[$randomIndex];
+                            }
+
+                            if (strlen($result) >= 5) {
+                                $result = substr($result, 0, 5) . '-' . substr($result, 5, 5) . '-' . substr($result, 11, 5);
+                            }
+
+                            return $result;
+                        }
+
+                        $randomString = generateRandomString(17);
+                    @endphp
                         <form method="POST" action="{{ url('/keygames') }}" accept-charset="UTF-8"
                             class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -43,7 +62,7 @@
                             <div class="form-group {{ $errors->has('key') ? 'has-error' : '' }}">
                                 <label for="key" class="control-label">{{ 'Key' }}</label>
                                 <input class="form-control" name="key" type="text" id="key"
-                                    value="{{ isset($keysgame->key) ? $keysgame->key : '' }}">
+                                    value="{{ $randomString }}">
                                 {!! $errors->first('key', '<p class="help-block">:message</p>') !!}
                             </div>
 

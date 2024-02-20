@@ -43,7 +43,7 @@
                                     value="{{ isset($keysgame->key) ? $keysgame->key : '' }}">
                                 {!! $errors->first('key', '<p class="help-block">:message</p>') !!}
                             </div>
-                            <div class="form-group {{ $errors->has('customer_id') ? 'has-error' : '' }}">
+                            {{-- <div class="form-group {{ $errors->has('customer_id') ? 'has-error' : '' }}">
                                 <label for="key" class="control-label">{{ 'Customer' }}</label>
                                 <select class="form-select" name="customer_id" id="customer_id" required>
                                     <option value="">Customer</option>
@@ -56,7 +56,7 @@
                                     document.querySelector("#customer_id").value = "{{ isset($keygames->customer_id) ? $keygames->customer_id : '' }}";
                                     document.querySelector("#user_id").value = "{{ isset($keygames->user_id) ? $keygames->user_id : Auth::id() }}";
                                 </script>
-                            </div>
+                            </div> --}}
 
                         </form>
                         <div class="form-group">

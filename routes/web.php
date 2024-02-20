@@ -31,18 +31,19 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin'])->group(function () {
         Route::resource('customer', customerController::class);
+        
 
         Route::resource('game', gameController::class);
         Route::resource('keygames', KeysgamesController::class);
-        
     });
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::middleware(['role:admin,guest'])->group(function (){
-        Route::resource('dashboard', dashboard::class);
-        Route::get('/Mykey/{id}', [dashboard::class, 'show'])->middleware('auth');
-        // Route::resource('Mykey',MykeyController::class);
+    Route::middleware(['role:admin,guest'])->group(function () {
+        Route::resource('dashboard', KeysgamesController::class);
+        Route::get('/Mykey/{id}', [dashboard::class, 'show','store'])->middleware('auth');
+        // Route::get('/Mykey/{id}', [dashboard::class, 'store'])->middleware('auth');
+        
 
     });
 });

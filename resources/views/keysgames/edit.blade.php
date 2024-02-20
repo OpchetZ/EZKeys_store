@@ -43,6 +43,20 @@
                                     value="{{ isset($keysgame->key) ? $keysgame->key : '' }}">
                                 {!! $errors->first('key', '<p class="help-block">:message</p>') !!}
                             </div>
+                            <div class="form-group {{ $errors->has('customer_id') ? 'has-error' : '' }}">
+                                <label for="key" class="control-label">{{ 'Customer' }}</label>
+                                <select class="form-select" name="customer_id" id="customer_id" required>
+                                    <option value="">Customer</option>
+                                    @foreach ($customers as $item)
+                                        <option value="{{ $item->id }}">{{ $item->user->name }}</option>
+                                    @endforeach
+                                </select>
+                                <input type="hidden" name="user_id" id="user_id" value="{{ Auth::id() }}">
+                                <script>
+                                    document.querySelector("#customer_id").value = "{{ isset($keygames->customer_id) ? $keygames->customer_id : '' }}";
+                                    document.querySelector("#user_id").value = "{{ isset($keygames->user_id) ? $keygames->user_id : Auth::id() }}";
+                                </script>
+                            </div>
 
                         </form>
                         <div class="form-group">

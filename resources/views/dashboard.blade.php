@@ -41,38 +41,32 @@
                             $randomString = generateRandomString(17);
                         @endphp
                         @foreach ($game as $item)
-                            <div class="card pb-3">
+                            <div class="card pb-3" style="border: none">
                                 <div class="tumb" style="margin-left: auto;margin-right:auto;">
                                     <img class="rounded" src="{{ $item->photo }}" width="400px" />
                                 </div>
                                 <div class="details" style="padding:20px;text-align: center;">
                                     <b class="catagory" style="font-size: 15px">{{ $item->name }}</b>
                                 </div>
-                                <div class="price">
-                                    <b>{{ $item->price }} บาท </b>
-                                </div>
+                                <div style="border-style: solid">
+                                    <div class="price">
+                                        <b>{{ $item->price }} บาท </b>
+                                    </div>
 
-                                <div class="button">
-
-                                    
-                                    <form action="{{ route('dashboard.store') }}" method="POST">
-                                        <input type="hidden" name="game_id" value="{{ $item->id }}">
-                                        <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                        <input type="hidden" name="customer_id" value="{{ Auth::id() }}">
-                                        <input name="key" type="hidden" value="{{ $randomString }}">
+                                    <div class="button">
 
 
+                                        <form action="{{ route('dashboard.store') }}" method="POST">
+                                            <input type="hidden" name="game_id" value="{{ $item->id }}">
+                                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                            <input type="hidden" name="customer_id" value="{{ Auth::id() }}">
+                                            <input name="key" type="hidden" value="{{ $randomString }}">
+                                            {{ csrf_field() }}
+                                            <button class="btn btn-success btn-sm">Buy Now <i class="fa fa-arrow-right"
+                                                    aria-hidden="true"></i></button>
 
-
-
-
-
-                                        {{ csrf_field() }}
-
-                                        <button class="btn btn-success btn-sm">Buy Now <i class="fa fa-arrow-right"
-                                                aria-hidden="true"></i></button>
-
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
 

@@ -56,9 +56,9 @@
                                             <td>{{ $item->user->name }}</td>
                                             <td>{{ $item->user->email }}</td>
                                             <td>
-                                                <a href="{{ url('/customer/' . $item->id) }}"
+                                                {{-- <a href="{{ url('/customer/' . $item->id) }}"
                                                     title="View customer"><button class="btn btn-info btn-sm"><i
-                                                            class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                                            class="fa fa-eye" aria-hidden="true"></i> View</button></a> --}}
                                                 <a href="{{ url('/customer/' . $item->id . '/edit') }}"
                                                     title="Edit customer"><button class="btn btn-primary btn-sm"><i
                                                             class="fa fa-pencil-square-o" aria-hidden="true"></i>

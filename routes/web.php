@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin,guest'])->group(function () {
-        Route::resource('dashboard', KeysgamesController::class);
+        Route::resource('dashboard', dashboard::class);
         Route::get('/Mykey/{id}', [dashboard::class, 'show','store'])->middleware('auth');
         // Route::get('/Mykey/{id}', [dashboard::class, 'store'])->middleware('auth');
         
